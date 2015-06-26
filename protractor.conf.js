@@ -4,7 +4,7 @@ exports.config = {
     //seleniumAddress: 'http://localhost:4444/wd/hub',
 
     // use chromedriver
-    //directConnect: true,
+    directConnect: true,
 
     framework: 'cucumber',
 

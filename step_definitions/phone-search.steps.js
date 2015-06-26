@@ -6,6 +6,9 @@ chai.use(chaiAsPromised);
 
 var expect = chai.expect;
 
+var PhonePage = require('./../page_objects/phones.pageobject.js');
+var page = new PhonePage();
+
 module.exports = function() {
 
     this.Given(/^I am on the phonecat page$/, function(next) {
@@ -14,15 +17,19 @@ module.exports = function() {
     });
 
     this.When(/^I search for a phone$/, function(next) {
-        element(by.model('query')).sendKeys('test');
+        //element(by.model('query')).sendKeys('test');
+        page.searchPhones('test');
         next();
     });
 
     this.Then(/^I should a filtered phone list$/, function(next) {
         // element.all is used for finding arrays
-        expect(
-                element.all(by.repeater('phone in phones')).count()
-            ).to.eventually.equal(1)
+        // expect(
+        //         element.all(by.repeater('phone in phones')).count()
+        //     ).to.eventually.equal(1)
+        //     .and.notify(next);
+        expect(page.phoneListCount())
+            .to.eventually.equal(1)
             .and.notify(next);
     });
 
