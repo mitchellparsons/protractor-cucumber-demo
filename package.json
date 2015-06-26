@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/mitchellparsons/protractor-cucumber-demo",
   "devDependencies": {
+    "chai": "^3.0.0",
+    "chai-as-promised": "^5.1.0",
+    "cucumber": "^0.5.1",
     "protractor": "^2.1.0"
   }
 }
